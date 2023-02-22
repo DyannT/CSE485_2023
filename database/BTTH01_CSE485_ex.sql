@@ -1,4 +1,4 @@
--- a
+-- a 
 SELECT * FROM `baiviet` WHERE ma_tloai = 2
 
 -- b
