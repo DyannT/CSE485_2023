@@ -98,3 +98,10 @@ BEGIN
   WHERE ma_tloai = OLD.ma_tloai;
 END$$
 DELIMITER ;
+
+-- l
+CREATE TABLE `user` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+)
