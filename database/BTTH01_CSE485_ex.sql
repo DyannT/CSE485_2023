@@ -35,6 +35,9 @@ LIMIT 2;
 --h
 SELECT * FROM `baiviet` WHERE ten_bhat LIKE '%yêu%' OR ten_bhat LIKE '%thương%' OR ten_bhat LIKE '%anh%' OR ten_bhat LIKE '%em%' LIMIT 1;
 
+
+
+
 -- j
 DELIMITER //
 CREATE PROCEDURE sp_DSBaiViet(IN ten_tloai VARCHAR(50))
