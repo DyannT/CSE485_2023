@@ -4,7 +4,7 @@ require '../includes/functions.php';
 
 
 // Xử lý upload file
-require 'move-file.php';
+require '../includes/move-file.php';
 
 // Lấy tên file đã được lưu
 $filename = isset($filename) ? $filename : null;
@@ -29,11 +29,11 @@ if (isset($_POST['txtId'])) {
     VALUES ('" . $txtAutId . "', '" . $txtArtTL . "', '" . $txtArtTitle . "', '" . $txtArtBh . "', '" . $txtArtTt . "', '" . $txtArtContent . "', '" . $filename . "')";
     } else {
         $sql = "INSERT INTO `baiviet`(`ma_tgia`, `ma_tloai`, `tieude`, `ten_bhat`, `tomtat`, `noidung`)
-    VALUES ('" . $txtAutId . "', '" . $txtArtTL . "', '" . $txtArtTitle . "', '" . $txtArtBh . "', '" . $txtArtTt . "', '" . $txtArtContent . "')";
+    VALUES ('[" . $txtAutId . "', '" . $txtArtTL . "', '" . $txtArtTitle . "', '" . $txtArtBh . "', '" . $txtArtTt . "', '" . $txtArtContent . "'])";
     }
 }
 
 
 
-$update = pdo($pdo, $sql);
+$update = pdo($pdo, $sql)->fetchAll();
 header("Location:article.php");

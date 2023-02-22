@@ -35,7 +35,7 @@
                                     </i></a>
                                 </td>
                                 <td>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                                    <a href="process_delete_author.php?id=<?php echo $item['ma_tgia'] ?>"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php        

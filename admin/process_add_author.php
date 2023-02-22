@@ -3,7 +3,7 @@ require '../includes/database-connection.php';
 require '../includes/functions.php';  
 
 // Xử lý upload file
-require 'move-file.php';
+require '../includes/move-file.php';
 
 // Lấy tên file đã được lưu
 $filename = isset($filename) ? $filename : null;
