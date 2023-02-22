@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2023 at 09:39 PM
+-- Generation Time: Feb 22, 2023 at 07:57 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `btth01_cse485`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_DSBaiViet` (IN `ten_tloai` VARCHAR(50))   BEGIN
+    IF NOT EXISTS(SELECT ma_tloai FROM theloai tl WHERE tl.ten_tloai = ten_tloai) THEN
+        SELECT 'Thể loại không tồn tại';
+    END IF;
+        SELECT ma_bviet, tieude, ten_bhat, ten_tgia, ten_tloai, ngayviet 
+        FROM baiviet 
+        INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia 
+        INNER JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai 
+        WHERE theloai.ten_tloai = ten_tloai;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -58,17 +75,39 @@ INSERT INTO `baiviet` (`ma_bviet`, `tieude`, `ten_bhat`, `ma_tloai`, `tomtat`, `
 (12, 'Cây và gió', 'Cây và gió', 7, 'Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.', NULL, 7, '2013-12-05 00:00:00', NULL),
 (13, 'Như một cách tạ ơn đời', 'Người thầy', 2, 'Ánh nắng cuối ngày rồi cũng sẽ tắt, dòng sông con đò rồi cũng sẽ rẽ sang một hướng khác. Nhưng việc trồng người luôn cảm thụ với chuyến đò ngang, cứ tần tảo đưa rồi lặng lẽ quay về đưa sang. Con đò năm xưa của Thầy nặng trĩu yêu thương, hy sinh thầm lặng.', NULL, 8, '2014-01-02 00:00:00', NULL);
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `nguoidung`
+-- Triggers `baiviet`
 --
+DELIMITER $$
+CREATE TRIGGER `tg_CapNhatTheLoai_Delete` AFTER DELETE ON `baiviet` FOR EACH ROW BEGIN
+  UPDATE theloai
+  SET SLBaiViet = SLBaiViet - 1
+  WHERE ma_tloai = OLD.ma_tloai;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `tg_CapNhatTheLoai_Insert` AFTER INSERT ON `baiviet` FOR EACH ROW BEGIN
+  UPDATE theloai
+  SET SLBaiViet = SLBaiViet + 1
+  WHERE ma_tloai = NEW.ma_tloai;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `tg_CapNhatTheLoai_Update` AFTER UPDATE ON `baiviet` FOR EACH ROW BEGIN
+  IF NEW.ma_tloai <> OLD.ma_tloai THEN
+    UPDATE theloai
+    SET SLBaiViet = SLBaiViet + 1
+    WHERE ma_tloai = NEW.ma_tloai;
 
-CREATE TABLE `nguoidung` (
-  `ma_ngdung` int(11) NOT NULL,
-  `taikhoan` varchar(200) NOT NULL,
-  `matkhau` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+    UPDATE theloai
+    SET SLBaiViet = SLBaiViet - 1
+    WHERE ma_tloai = OLD.ma_tloai;
+  END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -104,22 +143,55 @@ INSERT INTO `tacgia` (`ma_tgia`, `ten_tgia`, `hinh_tgia`) VALUES
 
 CREATE TABLE `theloai` (
   `ma_tloai` int(10) UNSIGNED NOT NULL,
-  `ten_tloai` varchar(50) NOT NULL
+  `ten_tloai` varchar(50) NOT NULL,
+  `SLBaiViet` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `theloai`
 --
 
-INSERT INTO `theloai` (`ma_tloai`, `ten_tloai`) VALUES
-(1, 'Nhạc trẻ'),
-(2, 'Nhạc trữ tình'),
-(3, 'Nhạc cách mạng'),
-(4, 'Nhạc thiếu nhi'),
-(5, 'Nhạc quê hương'),
-(6, 'POP'),
-(7, 'Rock'),
-(8, 'R&B');
+INSERT INTO `theloai` (`ma_tloai`, `ten_tloai`, `SLBaiViet`) VALUES
+(1, 'Nhạc trẻ', 0),
+(2, 'Nhạc trữ tình', 0),
+(3, 'Nhạc cách mạng', 0),
+(4, 'Nhạc thiếu nhi', 0),
+(5, 'Nhạc quê hương', 0),
+(6, 'POP', 0),
+(7, 'Rock', 0),
+(8, 'R&B', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_music`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_music` (
+`ten_tloai` varchar(50)
+,`ten_tgia` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_music`
+--
+DROP TABLE IF EXISTS `vw_music`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_music`  AS SELECT `theloai`.`ten_tloai` AS `ten_tloai`, `tacgia`.`ten_tgia` AS `ten_tgia` FROM ((`baiviet` join `tacgia` on(`baiviet`.`ma_tgia` = `tacgia`.`ma_tgia`)) join `theloai` on(`baiviet`.`ma_tloai` = `theloai`.`ma_tloai`))  ;
 
 --
 -- Indexes for dumped tables
@@ -132,12 +204,6 @@ ALTER TABLE `baiviet`
   ADD PRIMARY KEY (`ma_bviet`),
   ADD KEY `ma_tgia` (`ma_tgia`),
   ADD KEY `ma_tloai` (`ma_tloai`);
-
---
--- Indexes for table `nguoidung`
---
-ALTER TABLE `nguoidung`
-  ADD PRIMARY KEY (`ma_ngdung`);
 
 --
 -- Indexes for table `tacgia`
@@ -160,12 +226,6 @@ ALTER TABLE `theloai`
 --
 ALTER TABLE `baiviet`
   MODIFY `ma_bviet` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `nguoidung`
---
-ALTER TABLE `nguoidung`
-  MODIFY `ma_ngdung` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tacgia`
