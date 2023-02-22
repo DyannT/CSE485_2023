@@ -43,13 +43,9 @@
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="d-flex justify-content-center h-100">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header text-center ">
                         <h3>Sign In</h3>
-                        <div class="d-flex justify-content-end social_icon">
-                            <span><i class="fab fa-facebook-square"></i></span>
-                            <span><i class="fab fa-google-plus-square"></i></span>
-                            <span><i class="fab fa-twitter-square"></i></span>
-                        </div>
+                        
                     </div>
                     <div class="card-body">
                         <form>
@@ -66,18 +62,26 @@
                             <div class="row align-items-center remember">
                                 <input type="checkbox">Remember Me
                             </div>
-                            <div class="form-group">
-                                <input type="submit" value="Login" class="btn float-end login_btn">
+                            <div class="form-group text-center">
+                                <input type="submit" value="Log in" class="btn login_btn">
                             </div>
+                            
+                            
                         </form>
+                        <div class="d-flex justify-content-center social_icon">
+                            <span><i class="fa-brands fa-square-facebook"></i></span>
+                            <span><i class="fab fa-google-plus-square"></i></span>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <div class="d-flex justify-content-center ">
-                            Don't have an account?<a href="#" class="text-warning text-decoration-none">Sign Up</a>
+                            Don't have an account? &nbsp<a href="#" class=" text-decoration-none">Sign Up</a>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="text-warning text-decoration-none">Forgot your password?</a>
+                            <a href="#" class=" text-decoration-none">Forgot your password?</a>
                         </div>
+                        
                     </div>
                 </div>
 
