@@ -2,7 +2,10 @@
 SELECT * FROM `baiviet` WHERE ma_tloai = 2
 
 -- b
-SELECT * FROM `baiviet` WHERE ma_tgia = 1
+SELECT *
+FROM baiviet
+JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
+WHERE ten_tgia = 'Nhacvietplus';
 
 -- g
 SELECT * FROM `baiviet` WHERE ten_bhat LIKE '%yêu%' OR ten_bhat LIKE '%thương%' OR ten_bhat LIKE '%anh%' OR ten_bhat LIKE '%em%' LIMIT 1;
