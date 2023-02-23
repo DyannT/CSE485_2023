@@ -40,7 +40,7 @@
                                 <td><?php echo $item['ma_tgia'] ?></td>
                                 <td><?php echo $item['ngayviet'] ?></td>
                                 <td>
-                                    <img src="../images/article/<?php echo $item['hinhanh'];?>" class="rounded-3" style="width: 150px;" alt="...">
+                                    <img src="../images/songs/<?php echo $item['hinhanh'];?>" class="rounded-3" style="width: 150px;" alt="...">
                                 </td>
                                 <td>
                                     <a href="edit_article.php?id=<?php echo $item['ma_bviet'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>

@@ -29,7 +29,7 @@ if (isset($_POST['txtId'])) {
     VALUES ('" . $txtAutId . "', '" . $txtArtTL . "', '" . $txtArtTitle . "', '" . $txtArtBh . "', '" . $txtArtTt . "', '" . $txtArtContent . "', '" . $filename . "')";
     } else {
         $sql = "INSERT INTO `baiviet`(`ma_tgia`, `ma_tloai`, `tieude`, `ten_bhat`, `tomtat`, `noidung`)
-    VALUES ('[" . $txtAutId . "', '" . $txtArtTL . "', '" . $txtArtTitle . "', '" . $txtArtBh . "', '" . $txtArtTt . "', '" . $txtArtContent . "'])";
+    VALUES ('" . $txtAutId . "', '" . $txtArtTL . "', '" . $txtArtTitle . "', '" . $txtArtBh . "', '" . $txtArtTt . "', '" . $txtArtContent . "')";
     }
 }
 
