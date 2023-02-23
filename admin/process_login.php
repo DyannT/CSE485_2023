@@ -10,6 +10,9 @@
         if($record){
             $_SESSION['username'] = $username;
             header('location: index.php');
+        }else{
+            header("Location: ../login.php?error='Invalid user or pass'");
+
         }
     }
 
