@@ -53,7 +53,7 @@
 
         <div class="row mb-5">
             <div class="col-sm-4">
-                <img src="images/songs/<?php echo $record[0]['hinhanh']; ?>" class="img-fluid" alt="...">
+                <img src="images/songs/<?php echo !empty($record[0]['hinhanh']) ? $record[0]['hinhanh'] : (str_replace('-','',create_slug($record[0]['ten_bhat'])).".jpg")  ?>" class="img-fluid" alt="...">
             </div>
             <div class="col-sm-8">
                 <h5 class="card-title mb-2">
