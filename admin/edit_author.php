@@ -11,7 +11,7 @@ $recordByID = pdo($pdo, $sql)->fetchAll();
         <div class="col-sm">
             <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tác giả</h3>
             <form action="process_add_author.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="path" value="../images/author/">
+            <input type="hidden" name="path" value="../images/songs/">
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutId">Mã tác giả</span>
                     <input type="text" class="form-control" name="txtAutId" readonly value="<?php echo $recordByID[0]['ma_tgia'] ?>">

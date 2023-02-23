@@ -11,7 +11,7 @@ $recordByID = pdo($pdo, $sql)->fetchAll();
         <div class="col-sm">
             <h3 class="text-center text-uppercase fw-bold">Sửa bài viết</h3>
             <form action="process_add_article.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="path" value="../images/article/">
+            <input type="hidden" name="path" value="../images/songs/">
             <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutId">Mã bài viết</span>
                     <input type="text" class="form-control" name="txtId" readonly value="<?php echo $recordByID[0]['ma_bviet'] ?>">

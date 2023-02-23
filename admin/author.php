@@ -28,7 +28,7 @@
                                 <th scope="row"><?php echo $item['ma_tgia'] ?></th>
                                 <td><?php echo $item['ten_tgia'] ?></td>
                                 <td>
-                                    <img src="../images/author/<?php echo $item['hinh_tgia'];?>" class="rounded-3" style="width: 150px;" alt="...">
+                                    <img src="../images/songs/<?php echo $item['hinh_tgia'];?>" class="rounded-3" style="width: 150px;" alt="...">
                                 </td>
                                 <td>
                                     <a href="edit_author.php?id=<?php echo $item['ma_tgia'] ?>"><i class="fa-solid fa-pen-to-square">
