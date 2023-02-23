@@ -1,14 +1,16 @@
 <?php
+    require '../includes/database-connection.php';
+    require '../includes/functions.php';
     session_start();
     if(isset($_POST['login'])){
         $username = $_POST['txtUser'];
         $password = $_POST['txtPassword'];
-        $sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
-        $result = mysqli_query($conn, $sql);
-        if(mysqli_num_rows($result) > 0){
+        $sql = "SELECT * FROM `user` WHERE username = '$username' AND password = '$password'";
+        $record = pdo($pdo, $sql)->fetchAll();
+        if($record){
             $_SESSION['username'] = $username;
             header('location: index.php');
+        }
     }
-}
 
 ?>

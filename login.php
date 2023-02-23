@@ -68,7 +68,7 @@
                                 <input type="checkbox">Remember Me
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Login" class="btn float-end login_btn">
+                                <input type="submit" name = "login" value="Login" class="btn float-end login_btn">
                             </div>
                         </form>
                     </div>
