@@ -68,18 +68,19 @@ input:focus {
 .login_btn {
     color: black;
     background-color: #6ccee9;
-    width: 100%;
     margin-top: 15px;
+    min-width: 150px;
     font-weight: bold;
+    border-radius: 50px;
     
 
 }
 
 .login_btn:hover {
     color: black;
-    background-color: #6ccee9;
-    width: 100%;
     margin-top: 15px;
+    background-color: #6ccee9;
+    background-color: rgba(108, 206, 23, 0.1);
     
 }
 
