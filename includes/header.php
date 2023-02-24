@@ -25,9 +25,6 @@
                         <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
@@ -36,6 +33,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="process_logout.php">Logout</a></a>
                 </ul>
                 </div>
             </div>
