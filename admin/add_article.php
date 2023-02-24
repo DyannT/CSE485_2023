@@ -23,8 +23,8 @@ $categories = pdo($pdo, $sql)->fetchAll();
                     <input type="text" class="form-control" name="txtArtBh">
                 </div>
                 <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text" id="lblAutName">Mã thể loại</span>
-                    <select name="txtArtTL" class="form-select">
+                    <span class="input-group-text" id="lblAutName">Tên thể loại</span>
+                    <select name="txtArtTL" class="form-select" required>
                         <option selected></option>
                         <?php foreach ($categories as $category) : ?>
                             <option value="<?= $category['ma_tloai'] ?>"><?= $category['ten_tloai'] ?></option>
@@ -40,9 +40,9 @@ $categories = pdo($pdo, $sql)->fetchAll();
                     <textarea name="txtArtContent" class="form-control" rows="9"></textarea>
                 </div>
                 <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text" id="lblAutName">Mã tác giả</span>
+                    <span class="input-group-text" id="lblAutName">Tên tác giả</span>
                     <!-- <input type="text" class="form-control" name="txtAutId"> -->
-                    <select name="txtAutId" class="form-select" aria-label="">
+                    <select name="txtAutId" class="form-select" aria-label="" required>
                     <option selected></option>
                         <?php foreach ($authors as $author) : ?>
                             <option value="<?= $author['ma_tgia'] ?>"><?= $author['ten_tgia'] ?></option>
