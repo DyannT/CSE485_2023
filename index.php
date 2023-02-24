@@ -79,14 +79,14 @@
                 foreach($arr as $key => $item){
                     ?>
                         <div class="col-sm-3">
-                            <div class="card mb-2" style="width: 100%;">
+                            <a href="detail.php?id=<?php echo $item['ma_bviet'] ?>"><div class="card mb-2" style="width: 100%;">
                                 <img src="images/songs/<?php echo !empty($item['hinhanh']) ? $item['hinhanh'] : (str_replace('-','',create_slug($item['ten_bhat'])).".jpg")  ?>" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title text-center">
                                         <a href="detail.php?id=<?php echo $item['ma_bviet'] ?>" class="text-decoration-none"><?php echo $item['ten_bhat'] ?></a>
                                     </h5>
                                 </div>
-                            </div>
+                            </div></a>
                         </div>
                     <?php
                 }
