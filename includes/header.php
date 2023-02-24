@@ -11,6 +11,12 @@
 </head>
 <body>
     <header>
+        <?php
+            $type = null;
+            if(isset($_GET['type'])){
+                $type = $_GET['type'];
+            }
+        ?>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
                 <div class="h3">
@@ -25,13 +31,13 @@
                         <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="category.php">Thể loại</a>
+                        <a class="nav-link <?php $type == 'the_loai' ? 'active' : '' ?>" href="category.php?type=the_loai">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="author.php">Tác giả</a>
+                        <a class="nav-link <?php $type == 'tac_gia' ? 'active' : '' ?>" href="author.php?type=tac_gia">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="article.php">Bài viết</a>
+                        <a class="nav-link <?php $type == 'bai_viet' ? 'active' : '' ?>" href="article.php?type=bai_viet">Bài viết</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="process_logout.php">Logout</a></a>

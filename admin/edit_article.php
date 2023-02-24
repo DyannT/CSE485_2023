@@ -34,7 +34,7 @@ $recordByID = pdo($pdo, $sql)->fetchAll();
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Nội dung</span>
-                    <input type="text" class="form-control" value="<?php echo $recordByID[0]['noidung'] ?>" name="txtArtContent">
+                    <textarea rows="10" name="txtArtContent" id = "#editor"><?php echo $recordByID[0]['noidung'] ?></textarea>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Mã tác giả</span>
