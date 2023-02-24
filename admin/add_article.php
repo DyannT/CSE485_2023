@@ -1,5 +1,12 @@
 <?php
 require '../includes/header.php';
+require '../includes/database-connection.php';
+require '../includes/functions.php';
+$sql = "SELECT * FROM `tacgia`";
+$authors = pdo($pdo, $sql)->fetchAll();
+$sql = "SELECT * FROM `theloai`";
+$categories = pdo($pdo, $sql)->fetchAll();
+
 ?>
 <main class="container mt-5 mb-5">
     <div class="row">
@@ -17,19 +24,30 @@ require '../includes/header.php';
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Mã thể loại</span>
-                    <input type="text" class="form-control" name="txtArtTL">
+                    <select name="txtArtTL" class="form-select">
+                        <option selected></option>
+                        <?php foreach ($categories as $category) : ?>
+                            <option value="<?= $category['ma_tloai'] ?>"><?= $category['ten_tloai'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tóm tắt</span>
-                    <input type="text" class="form-control" name="txtArtTt">
+                    <textarea name="txtArtTt" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Nội dung</span>
-                    <input type="text" class="form-control" name="txtArtContent">
+                    <textarea name="txtArtContent" class="form-control" rows="9"></textarea>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Mã tác giả</span>
-                    <input type="text" class="form-control" name="txtAutId">
+                    <!-- <input type="text" class="form-control" name="txtAutId"> -->
+                    <select name="txtAutId" class="form-select" aria-label="">
+                    <option selected></option>
+                        <?php foreach ($authors as $author) : ?>
+                            <option value="<?= $author['ma_tgia'] ?>"><?= $author['ten_tgia'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutImg">Hình ảnh</span>
