@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
+.my-logo {
+    max-width: 20%;
+}
+
+.nav-link {
+    text-transform: uppercase;
+}
+
+.active {
+    font-weight: bold;
+}
+
+
 .card {
     margin-top: auto;
     margin-bottom: auto;
