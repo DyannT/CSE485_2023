@@ -57,7 +57,9 @@ $categories = pdo($pdo, $sql)->fetchAll();
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Nội dung</span>
-                    <textarea rows="10" name="txtArtContent" id = "#editor"><?php echo $recordByID[0]['noidung'] ?></textarea>
+                    <div id="editor">
+                        <textarea rows="10" name="txtArtContent"><?php echo $recordByID[0]['noidung'] ?></textarea>
+                    </div>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tên tác giả</span>
