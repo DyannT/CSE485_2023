@@ -9,12 +9,13 @@
     <title>Music for Life</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
                 <div class="my-logo">
                     <a class="navbar-brand" href="#">
@@ -22,21 +23,21 @@
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="./login.php">Đăng nhập</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Tìm</button>
-                    </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="./login.php">Đăng nhập</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Tìm</button>
+                </form>
                 </div>
             </div>
         </nav>
@@ -45,16 +46,12 @@
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="d-flex justify-content-center h-100">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Sign In</h3>
-                    <div class="d-flex justify-content-end social_icon">
-                        <span><i class="fab fa-facebook-square"></i></span>
-                        <span><i class="fab fa-google-plus-square"></i></span>
-                        <span><i class="fab fa-twitter-square"></i></span>
+                <div class="card">
+                    <div class="card-header text-center ">
+                        <h3>Sign In</h3>
+                        
                     </div>
-                </div>
-                <div class="card-body">
+                    <div class="card-body">
                     <?php
                     if (isset($_GET['error'])) {
                         echo "<h2 style='color:red'>{$_GET['error']}</h2>";
@@ -74,17 +71,22 @@
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
                         </div>
-                        <div class="form-group">
-                            <input type="submit" name="login" value="Login" class="btn float-end login_btn">
+                        <div class="form-group text-center">
+                            <input type="submit" name="login" value="Login" class="btn login_btn">
                         </div>
                     </form>
+                    <div class="d-flex justify-content-center social_icon">
+                            <span><i class="fa-brands fa-square-facebook"></i></span>
+                            <span><i class="fab fa-google-plus-square"></i></span>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center ">
-                        Don't have an account?<a href="#" class="text-warning text-decoration-none">Sign Up</a>
+                        Don't have an account? &nbsp <a href="#" class="text-decoration-none">Sign Up</a>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="#" class="text-warning text-decoration-none">Forgot your password?</a>
+                        <a href="#" class="text-decoration-none">Forgot your password?</a>
                     </div>
                 </div>
             </div>
