@@ -52,28 +52,36 @@
                         
                     </div>
                     <div class="card-body">
-                    <?php
-                    if (isset($_GET['error'])) {
-                        echo "<h2 style='color:red'>{$_GET['error']}</h2>";
-                    }
-                    ?>
                     <form action="./admin/process_login.php" method="post">
-                        <div class="input-group mb-3">
+                        <div class="error-input input-group mb-3">
                             <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
-                            <input type="text" class="form-control" placeholder="username" name="txtUser">
+                            <input type="text" class=" form-control" placeholder="username" name="txtUser">
                         </div>
 
-                        <div class="input-group mb-3">
+                        <div class="error-input input-group mb-3">
                             <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                            <input type="text" class="form-control" placeholder="password" name="txtPassword">
+                            <input type="text" class=" form-control" placeholder="password" name="txtPassword">
                         </div>
+                        <?php
+                            if (isset($_GET['error'])) {
+                                ?>
+                                <style>
+                                    .error-input{
+                                        border: 1px solid red;
+                                    }
+                                </style>
 
+                                <?php
+                                echo "<p style='color:red'>{$_GET['error']}</p>";
+                            }
+                        ?>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
                         </div>
                         <div class="form-group text-center">
                             <input type="submit" name="login" value="Login" class="btn login_btn">
                         </div>
+
                     </form>
                     <div class="d-flex justify-content-center social_icon">
                             <span><i class="fa-brands fa-square-facebook"></i></span>
