@@ -51,7 +51,7 @@ $arrBaiViet = pdo($pdo, $sql)->fetchAll();
                                 <a href="edit_article.php?id=<?php echo $item['ma_bviet'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href="process_delete_article.php?id=<?php echo $item['ma_bviet'] ?>"><i class="fa-solid fa-trash"></i></a>
+                                <a href="javascript:void(0);" onclick="showConfirmationDialog(<?php echo $item['ma_bviet'] ?>)"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php
@@ -62,6 +62,13 @@ $arrBaiViet = pdo($pdo, $sql)->fetchAll();
         </div>
     </div>
 </main>
+<script>
+    function showConfirmationDialog(id) {
+        if (confirm("Bạn có muốn xóa không?")) {
+            window.location.href = "process_delete_article.php?id=" + id;
+        }
+    }
+</script>
 <?php
 require '../includes/footer.php';
 ?>
